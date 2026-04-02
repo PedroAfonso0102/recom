@@ -1,0 +1,51 @@
+$(document).ready(function() {
+   
+    $('#metalduro').click(function(){
+        $('.metalduro').slideToggle('slow'); 
+    });
+    
+    $('#seguranca').click(function(){
+        $('.seguranca').slideToggle('slow'); 
+    });
+    
+    $('#sugestoes').click(function(){
+        $('.sugestoes').slideToggle('slow'); 
+    });
+    
+    $('#torneamento').click(function(){
+        $('.torneamento').slideToggle('slow'); 
+    });
+	
+    $('#fresamento').click(function(){
+        $('.fresamento').slideToggle('slow'); 
+    });
+	
+    $('#furacao').click(function(){
+        $('.furacao').slideToggle('slow'); 
+    });
+    
+    $('#videos').click(function(){
+        $('.videos').slideToggle('slow'); 
+    });
+    
+});
+ 
+$(window).load(function() {
+    //$('#slider').nivoSlider();
+	$('#slider').nivoSlider({
+        effect:'sliceDown',
+        slices:15,
+        animSpeed:500,
+        pauseTime:3000,
+        directionNav:true, //Next & Prev
+        directionNavHide:true, //Only show on hover
+        controlNav:true, //1,2,3...
+        keyboardNav:true, //Use left & right arrows
+        pauseOnHover:true, //Stop animation while hovering
+        manualAdvance:false, //Force manual transitions
+        captionOpacity:0.8, //Universal caption opacity
+        beforeChange: function(){},
+        afterChange: function(){},
+        slideshowEnd: function(){} //Triggers after all slides have been shown
+    });
+});
