@@ -1,36 +1,36 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import { Link } from 'react-router-dom';
-import styles from './Page.module.css';
+
 
 const Seguranca = () => (
   <Layout>
-    <div className={styles.location}>
-      <div className={styles.whereCenter}>
+    <div className="text-sm text-muted-text py-2 border-b border-border-light mb-4 px-4">
+      <div className="w-full max-w-5xl mx-auto">
         Você está em: <Link to="/">Home</Link> &gt; Produtos &gt; Segurança nas Ferramentas
       </div>
     </div>
-    <div className={styles.centerData}>
-      <ul className={styles.menuLateral}>
-        <li className={styles.produto}><Link to="/produtos">O que é Metal Duro?</Link></li>
-        <li className={styles.produto}><Link to="/sugestoes-de-utilizacao">Sugestões de Utilização</Link></li>
-        <li className={`${styles.produto} ${styles.active}`}><Link to="/seguranca">Segurança nas Ferramentas</Link></li>
-        <li className={styles.produto}><Link to="/torneamento">Torneamento</Link></li>
-        <li className={styles.produto}><Link to="/fresamento">Fresamento</Link></li>
-        <li className={styles.produto}><Link to="/furacao">Furação</Link></li>
-        <li className={styles.produto}><Link to="/videos">Vídeos</Link></li>
+    <div className="w-full max-w-5xl mx-auto px-4 pb-6 flex flex-col md:flex-row justify-center gap-8 items-start">
+      <ul className="w-full md:w-[200px] m-0 p-0 list-none shrink-0">
+        <li className="mb-1"><Link to="/produtos">O que é Metal Duro?</Link></li>
+        <li className="mb-1"><Link to="/sugestoes-de-utilizacao">Sugestões de Utilização</Link></li>
+        <li className="mb-1 [&>a]:bg-harmonic [&>a]:border-accent-blue [&>a]:text-accent-blue"><Link to="/seguranca">Segurança nas Ferramentas</Link></li>
+        <li className="mb-1"><Link to="/torneamento">Torneamento</Link></li>
+        <li className="mb-1"><Link to="/fresamento">Fresamento</Link></li>
+        <li className="mb-1"><Link to="/furacao">Furação</Link></li>
+        <li className="mb-1"><Link to="/videos">Vídeos</Link></li>
       </ul>
 
-      <div className={styles.textBox}>
-        <div className={styles.mainProductTitle}>Segurança nas Ferramentas</div>
+      <div className="flex-1 min-w-0 w-full">
+        <div className="text-2xl md:text-3xl color-accent-blue border-b-2 border-border-light pb-2 mb-4 font-bold text-accent-blue">Segurança nas Ferramentas</div>
         
-        <h3 className={styles.productTitle}>1. Utilização de Ferramentas de Corte</h3>
-        <p className={styles.just}>
+        <h3 className="text-xl text-accent-blue border-b border-border-light pb-1 my-6 mt-8 font-bold">1. Utilização de Ferramentas de Corte</h3>
+        <p className="text-justify [text-justify:inter-word] hyphens-auto leading-relaxed text-secondary-text mb-4 text-base">
           As embalagens dos produtos Mitsubishi trazem uma etiqueta com um aviso. No entanto, algumas ferramentas podem não trazer informações detalhadas de segurança. Leia com atenção as indicações de segurança contidas nesta seção do catálogo antes de manusear ferramentas e outros materiais de metal duro. Além disso, como parte do programa de treinamento em segurança na empresa, notifique todos os seus funcionários sobre o conteúdo desta seção.
         </p>
 
-        <h3 className={styles.productTitle}>2. Características Básicas dos Metais das Ferramentas</h3>
-        <p className={styles.just}>
+        <h3 className="text-xl text-accent-blue border-b border-border-light pb-1 my-6 mt-8 font-bold">2. Características Básicas dos Metais das Ferramentas</h3>
+        <p className="text-justify [text-justify:inter-word] hyphens-auto leading-relaxed text-secondary-text mb-4 text-base">
           <strong>Termos de "Segurança das Ferramentas de Metal Duro"</strong><br/><br/>
           <strong>Ferramentas de Metais Duros:</strong><br/>
           Termo geral para ferramentas de metais como liga de metal duro, cermet, cerâmicas, CBN sinterizado, diamante sinterizado, etc.<br/><br/>
@@ -38,8 +38,8 @@ const Seguranca = () => (
           Ferramentas com materiais que possuem WC (Carboneto de Tungstênio) como componente principal.
         </p>
 
-        <h4 className={styles.productTitle}>Características Físicas</h4>
-        <ul className={styles.just} style={{ listStyle: 'square', paddingLeft: '20px' }}>
+        <h4 className="text-xl text-accent-blue border-b border-border-light pb-1 my-6 mt-8 font-bold">Características Físicas</h4>
+        <ul className="text-justify [text-justify:inter-word] hyphens-auto leading-relaxed text-secondary-text mb-4 text-base" style={{ listStyle: 'square', paddingLeft: '20px' }}>
           <li><strong>Aparência:</strong> Varia conforme o tipo do material. Ex. cinza, preto, ouro, etc.</li>
           <li><strong>Cheiro:</strong> Nenhum</li>
           <li><strong>Dureza:</strong>
@@ -58,13 +58,13 @@ const Seguranca = () => (
           </li>
         </ul>
 
-        <p className={styles.just}>
+        <p className="text-justify [text-justify:inter-word] hyphens-auto leading-relaxed text-secondary-text mb-4 text-base">
           <strong>Componentes</strong><br/>
           Metal duro, nitreto, carbonitreto, óxidos como W, Ti, Al, Si, Ta, B e metais como Co, Ni, Cr, Mo.
         </p>
 
-        <h3 className={styles.productTitle}>3. Sugestões de Manuseio de Ferramentas de Metal Duro</h3>
-        <ul className={styles.just} style={{ listStyle: 'square', paddingLeft: '20px' }}>
+        <h3 className="text-xl text-accent-blue border-b border-border-light pb-1 my-6 mt-8 font-bold">3. Sugestões de Manuseio de Ferramentas de Metal Duro</h3>
+        <ul className="text-justify [text-justify:inter-word] hyphens-auto leading-relaxed text-secondary-text mb-4 text-base" style={{ listStyle: 'square', paddingLeft: '20px' }}>
           <li>Os materiais das ferramentas são extremamente duros e quebradiços ao mesmo tempo. Portanto, podem quebrar-se por choques ou apertos excessivos.</li>
           <li>Ferramentas de metal duro possuem peso específico elevado. Por isso, exigem atenção especial como materiais pesados quando o tamanho ou a quantidade forem grandes.</li>
           <li>Materiais das ferramentas e os materiais ferrosos possuem coeficientes de dilatação térmica diferentes. Contração ou expansão para montagem desses produtos podem causar quebras quando aplicadas em temperaturas maiores que as apropriadas às ferramentas.</li>
@@ -72,8 +72,8 @@ const Seguranca = () => (
           <li>Para maiores informações, consulte nosso Catálogo de Dados de Segurança dos Materiais. <a href="http://www.mitsubishicarbide.com/msds/" target="_blank" rel="noopener noreferrer">http://www.mitsubishicarbide.com/msds/</a></li>
         </ul>
 
-        <h3 className={styles.productTitle}>4. Sugestões de Utilização de Ferramentas de Corte</h3>
-        <ul className={styles.just} style={{ listStyle: 'square', paddingLeft: '20px' }}>
+        <h3 className="text-xl text-accent-blue border-b border-border-light pb-1 my-6 mt-8 font-bold">4. Sugestões de Utilização de Ferramentas de Corte</h3>
+        <ul className="text-justify [text-justify:inter-word] hyphens-auto leading-relaxed text-secondary-text mb-4 text-base" style={{ listStyle: 'square', paddingLeft: '20px' }}>
           <li>Condições superficiais afetam a tenacidade das ferramentas de corte. Portanto, utilize um rebolo diamantado para o acabamento.</li>
           <li>Afiação das ferramentas de corte produz poeira. Inalar grandes volumes desta poeira pode ser prejudicial. Portanto, utilize sistema de ventilação local, máscara de proteção e etc. Se a poeira entrar nos seus olhos ou na sua pele, lave a área em água corrente.</li>
           <li>Afiação de ferramentas de materiais duros ou produtos soldados produzem partículas de metal pesado na refrigeração. Atente-se ao descarte do líquido refrigerante.</li>
@@ -84,13 +84,13 @@ const Seguranca = () => (
         </ul>
 
         <div style={{ marginTop: '30px', borderTop: '1px solid #eee', paddingTop: '10px' }}>
-          <p className={styles.just} style={{ fontSize: '11px', color: '#666' }}>
+          <p className="text-justify [text-justify:inter-word] hyphens-auto leading-relaxed text-secondary-text mb-4 text-base" style={{ fontSize: '11px', color: '#666' }}>
             <strong>Fonte:</strong> MITSUBISHI MATERIALS<br />
             Para maiores informações, consulte o Catálogo de Dados de Segurança (MSDS).
           </p>
         </div>
       </div>
-      <div className={styles.clear}></div>
+      <div className="clear-both"></div>
     </div>
   </Layout>
 );
