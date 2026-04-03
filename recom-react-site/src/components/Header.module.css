@@ -1,0 +1,120 @@
+.topHeader {
+    width: 900px;
+    margin: 0 auto;
+    height: 120px;
+}
+
+.headerLogo {
+    float: left;
+    margin-top: 15px;
+}
+
+.enderecoTop {
+    float: right;
+    margin-top: 23px;
+}
+
+.partTitle {
+    color: #757575;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+
+.enderecoTop ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.enderecoTop li {
+    display: block;
+    font-size: 12px;
+    color: #a3aab1;
+}
+
+.enderecoTop h3 {
+    font-size: 12px;
+    font-weight: normal;
+    color: #a3aab1;
+    margin: 0;
+}
+
+.enderecoTop h3 b {
+    font-weight: bold;
+}
+
+.mailLink {
+    color: #057FCA;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.mailLink:hover {
+    text-decoration: underline;
+}
+
+.headerMenu {
+    width: 100%;
+    height: 62px;
+    float: left;
+    background: #414246; /* fallback for missing menu-bg.jpg */
+    list-style: none;
+    padding: 0;
+    clear: both;
+    margin: 0;
+}
+
+.menuCenter {
+    width: 630px;
+    margin: 0 auto;
+}
+
+.headerMenu li {
+    float: left;
+    margin-top: 15px;
+    padding-left: 32px;
+    padding-right: 32px;
+    border-right: solid 1px #5a5a5a;
+    text-align: left;
+}
+
+.headerMenu li.first {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.headerMenu li.last {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: none;
+}
+
+.headerMenu li a {
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: normal;
+    text-transform: none;
+    margin: 0;
+    padding: 0;
+}
+
+.headerMenu li:hover a {
+    color: #e5e5e5;
+}
+
+.legend {
+    color: #8e8e8e;
+    font-size: 12px;
+    margin-top: 2px;
+    display: block;
+    text-align: left;
+}
+
+.headerMenu li:hover .legend {
+    color: #e5e5e5;
+}
