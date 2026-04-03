@@ -1,42 +1,23 @@
-:root {
-  /* --- Spacing System (8pt Grid) --- */
-  --space-xs: 4px;
-  --space-s: 8px;
-  --space-m: 16px;
-  --space-l: 24px;
-  --space-xl: 32px;
-  --space-2xl: 48px;
-  --space-3xl: 64px;
+@import "tailwindcss";
 
-  /* --- Typography (Major Third Scale 1.25) --- */
-  --font-size-base: 14px;
-  --text-xs: 0.64rem;   /* 9px approx */
-  --text-sm: 0.8rem;    /* 11.2px approx */
-  --text-base: 1rem;    /* 14px */
-  --text-md: 1.25rem;   /* 17.5px */
-  --text-lg: 1.563rem;  /* 21.8px */
-  --text-xl: 1.953rem;  /* 27.3px */
-  --text-2xl: 2.441rem; /* 34px */
-
-  /* --- Colors --- */
-  --bg-main: #f1f1f1;
-  --bg-harmonic: #f8f8f8;
-  --bg-white: #ffffff;
-  --text-primary: #333333;
-  --text-secondary: #404040;
-  --text-muted: #737373;
-  --accent-blue: #0066cc;
-  --header-grad-top: #3a3b3e;
-  --header-grad-bottom: #2e2f30;
-  --border-light: #e5e5e5;
+@theme {
+  --color-bg-main: #f1f1f1;
+  --color-bg-harmonic: #f8f8f8;
+  --color-text-primary: #333333;
+  --color-text-secondary: #404040;
+  --color-text-muted: #737373;
+  --color-accent-blue: #0066cc;
+  --color-border-light: #e5e5e5;
+  --color-header-grad-top: #3a3b3e;
+  --color-header-grad-bottom: #2e2f30;
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: 'PT Sans', Arial, Helvetica, sans-serif;
-  background-color: var(--bg-main);
-  color: var(--text-primary);
+  background-color: var(--color-bg-main);
+  color: var(--color-text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -47,7 +28,7 @@ body {
 
 a {
   text-decoration: none;
-  color: var(--accent-blue);
+  color: var(--color-accent-blue);
   transition: color 0.1s;
 }
 

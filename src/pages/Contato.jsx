@@ -1,25 +1,25 @@
 import React from 'react';
 import Layout from '../components/Layout';
 import { Link } from 'react-router-dom';
-import styles from './Page.module.css';
+
 
 const Contato = () => {
   return (
     <Layout>
-      <div className={styles.location}>
-        <div className={styles.whereCenter}>
+      <div className="text-sm text-muted-text py-2 border-b border-border-light mb-4 px-4">
+        <div className="w-full max-w-5xl mx-auto">
           Você está em: <Link to="/">Home</Link> &gt; Contato
         </div>
       </div>
       
-      <div className={styles.centerData}>
-        <div className={styles.textBox} style={{ width: '100%' }}>
-          <div className={styles.mainProductTitle}>Contato</div>
+      <div className="w-full max-w-5xl mx-auto px-4 pb-6 flex flex-col md:flex-row justify-center gap-8 items-start">
+        <div className="flex-1 min-w-0 w-full" style={{ width: '100%' }}>
+          <div className="text-2xl md:text-3xl color-accent-blue border-b-2 border-border-light pb-2 mb-4 font-bold text-accent-blue">Contato</div>
           
-          <div className={styles.flexContainer} style={{ display: 'flex', gap: '40px', flexWrap: 'wrap' }}>
+          <div className="flex gap-10 flex-wrap" style={{ display: 'flex', gap: '40px', flexWrap: 'wrap' }}>
             <div style={{ flex: '1', minWidth: '300px' }}>
-              <h3 className={styles.productTitle}>Solicite um Orçamento</h3>
-              <p className={styles.just} style={{ marginBottom: '20px' }}>
+              <h3 className="text-xl text-accent-blue border-b border-border-light pb-1 my-6 mt-8 font-bold">Solicite um Orçamento</h3>
+              <p className="text-justify [text-justify:inter-word] hyphens-auto leading-relaxed text-secondary-text mb-4 text-base" style={{ marginBottom: '20px' }}>
                 Utilize o formulário abaixo para orçamentos técnicos ou dúvidas.
               </p>
               
@@ -59,25 +59,25 @@ const Contato = () => {
 
             <div style={{ flex: '0.8', minWidth: '300px' }}>
               <div style={{ backgroundColor: '#f4f4f4', padding: '25px', borderRadius: '8px', marginBottom: '25px' }}>
-                <h3 className={styles.productTitle} style={{ marginTop: 0 }}>Informações de Contato</h3>
-                <p className={styles.just}>
+                <h3 className="text-xl text-accent-blue border-b border-border-light pb-1 my-6 mt-8 font-bold" style={{ marginTop: 0 }}>Informações de Contato</h3>
+                <p className="text-justify [text-justify:inter-word] hyphens-auto leading-relaxed text-secondary-text mb-4 text-base">
                   <strong>Endereço:</strong><br />
                   Rua Alferes João José, 350<br />
                   Jardim Chapadão - Campinas, SP<br />
                   CEP 13070-188
                 </p>
-                <p className={styles.just} style={{ marginTop: '15px' }}>
+                <p className="text-justify [text-justify:inter-word] hyphens-auto leading-relaxed text-secondary-text mb-4 text-base" style={{ marginTop: '15px' }}>
                   <strong>Telefones:</strong><br />
                   (19) 3233-2224 (PABX)<br />
                   (19) 3232-6935
                 </p>
-                <p className={styles.just} style={{ marginTop: '15px' }}>
+                <p className="text-justify [text-justify:inter-word] hyphens-auto leading-relaxed text-secondary-text mb-4 text-base" style={{ marginTop: '15px' }}>
                   <strong>E-mail:</strong><br />
                   <a href="mailto:vendas.recom@montelione.com.br" style={{ color: '#cc0000', textDecoration: 'none' }}>vendas.recom@montelione.com.br</a>
                 </p>
               </div>
 
-              <h3 className={styles.productTitle}>Onde Estamos</h3>
+              <h3 className="text-xl text-accent-blue border-b border-border-light pb-1 my-6 mt-8 font-bold">Onde Estamos</h3>
               <div style={{ width: '100%', height: '250px', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}>
                 <iframe 
                   src="https://www.google.com/maps?q=Rua+Alferes+João+José,+350,+Campinas,+SP&output=embed" 
@@ -92,7 +92,7 @@ const Contato = () => {
             </div>
           </div>
         </div>
-        <div className={styles.clear}></div>
+        <div className="clear-both"></div>
       </div>
     </Layout>
   );
