@@ -1,0 +1,131 @@
+.location {
+    font-size: 11px;
+    color: #999;
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 20px;
+}
+
+.whereCenter {
+    width: 934px;
+    margin: 0 auto;
+}
+
+.location a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+.centerData {
+    width: 100%;
+}
+
+.menuLateral {
+    float: left;
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.produto {
+    margin-bottom: 5px;
+}
+
+.produto a {
+    display: block;
+    padding: 10px;
+    background: #f7f7f7;
+    border: 1px solid #e5e5e5;
+    color: #4b4b4b;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.produto a:hover {
+    background: #e5e5e5;
+    color: #0066cc;
+}
+
+.textBox {
+    float: left;
+    width: 700px;
+    margin-left: 30px;
+}
+
+.mainProductTitle {
+    font-size: 20px;
+    color: #0066cc;
+    border-bottom: 2px solid #e5e5e5;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.just {
+    text-align: justify;
+    line-height: 1.6;
+    color: #4b4b4b;
+    margin-bottom: 15px;
+}
+
+.justTextLeft {
+    margin: 0 0 10px 15px;
+}
+
+.justTextRight {
+    margin: 0 15px 10px 0;
+}
+
+.productTitle {
+    font-size: 16px;
+    color: #0066cc;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 5px;
+    margin: 20px 0 10px 0;
+    font-weight: bold;
+}
+
+.clear {
+    clear: both;
+}
+
+/* Form Styles */
+.contactForm {
+    width: 100%;
+    max-width: 500px;
+}
+
+.formGroup {
+    margin-bottom: 15px;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #4b4b4b;
+}
+
+.inputField, .textareaField {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.submitBtn {
+    background: #0066cc;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.submitBtn:hover {
+    background: #0052a3;
+}
