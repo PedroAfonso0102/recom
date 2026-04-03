@@ -1,0 +1,25 @@
+.container {
+    margin: 0 auto !important;
+    border: none !important;
+}
+
+.centerContent {
+    width: 998px;
+    min-height: 773px;
+    padding-bottom: 15px;
+    margin: 0 auto 20px auto;
+    background: #f8f8f8;
+    border: solid 1px #c8c8c8;
+    border-radius: 5px;
+    border-top: none;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.clearfix::after {
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}

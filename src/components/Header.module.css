@@ -1,0 +1,142 @@
+.topHeader {
+    width: 934px;
+    margin: 0 auto;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--space-s);
+}
+
+.headerLogo {
+    flex-shrink: 0;
+}
+
+.globeContainer {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.globeImg {
+    height: 110px;
+    opacity: 0.35;
+    object-fit: contain;
+}
+
+.enderecoTop {
+    flex-shrink: 0;
+    text-align: right;
+}
+
+.partTitle {
+    color: var(--text-muted);
+    font-size: var(--text-base);
+    font-weight: bold;
+    margin-bottom: var(--space-s);
+    margin-top: 0;
+}
+
+.enderecoTop ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.enderecoTop li {
+    display: block;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.enderecoTop h3 {
+    font-size: var(--text-sm);
+    font-weight: normal;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.enderecoTop h3 b {
+    font-weight: bold;
+}
+
+.mailLink {
+    color: var(--accent-blue);
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+.mailLink:hover {
+    text-decoration: underline;
+}
+
+.headerMenu {
+    width: 100%;
+    height: 64px; /* standardized to 8*8 */
+    background: linear-gradient(to bottom, var(--header-grad-top), var(--header-grad-bottom));
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menuCenter {
+    width: 934px; /* Aligned to main axis */
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.headerMenu li {
+    padding: 0 var(--space-l);
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Consistent left alignment */
+    height: 100%;
+}
+
+.headerMenu li.first {
+    padding-left: var(--space-l); /* Consistent padding */
+}
+
+.headerMenu li.last {
+    padding-right: var(--space-l);
+    border-right: none;
+}
+
+.headerMenu li a {
+    color: var(--bg-white);
+    font-size: var(--text-base);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.1s;
+    text-align: left;
+    line-height: 1.1;
+}
+
+.headerMenu li:hover a {
+    color: var(--bg-harmonic);
+}
+
+.legend {
+    color: var(--text-muted);
+    font-size: var(--text-xs);
+    margin-top: 1px;
+    line-height: 1;
+    display: block;
+    text-align: left;
+    opacity: 1;
+}
+
+.headerMenu li:hover .legend {
+    color: var(--bg-harmonic);
+    opacity: 1;
+}

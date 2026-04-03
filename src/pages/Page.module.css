@@ -1,0 +1,233 @@
+.location {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    padding: var(--space-s) 0;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: var(--space-m);
+}
+
+.whereCenter {
+    width: 934px;
+    margin: 0 auto;
+}
+
+.location a {
+    color: var(--accent-blue);
+    text-decoration: none;
+}
+
+.centerData {
+    width: 934px;
+    margin: 0 auto;
+    padding-bottom: var(--space-l);
+    display: flex;
+    justify-content: center; /* Center the overall content */
+    gap: var(--space-xl);
+    align-items: flex-start;
+}
+
+.menuLateral {
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    flex-shrink: 0;
+}
+
+.produto {
+    margin-bottom: var(--space-xs);
+}
+
+.produto a {
+    display: block;
+    padding: var(--space-s) var(--space-m);
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    font-size: var(--text-sm);
+    transition: all 0.1s;
+}
+
+.produto a:hover {
+    background: var(--bg-harmonic);
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+}
+
+.textBox {
+    flex: 1;
+    min-width: 0;
+    /* max-width removed to satisfy user preference for original width */
+}
+
+.mainProductTitle {
+    font-size: var(--text-lg);
+    color: var(--accent-blue);
+    border-bottom: 2px solid var(--border-light);
+    padding-bottom: var(--space-s);
+    margin-bottom: var(--space-m);
+    font-weight: bold;
+}
+
+.just {
+    text-align: justify; /* Restoring "professional old" look */
+    text-justify: inter-word;
+    hyphens: auto;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-m);
+    font-size: var(--text-base);
+}
+
+.justTextLeft {
+    margin: 0 0 var(--space-s) var(--space-m);
+}
+
+.justTextRight {
+    margin: 0 var(--space-m) var(--space-s) 0;
+}
+
+.productTitle {
+    font-size: var(--text-md);
+    color: var(--accent-blue);
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: var(--space-xs);
+    margin: var(--space-l) 0 var(--space-s) 0;
+    font-weight: bold;
+}
+
+.clear {
+    clear: both;
+}
+
+/* --- Typographic Elements --- */
+.floatingImage {
+    float: right;
+    margin-left: var(--space-l);
+    margin-bottom: var(--space-m);
+    border: 1px solid var(--border-light);
+    padding: var(--space-xs);
+    background: var(--bg-white);
+    max-width: 320px;
+}
+
+.missionBlock {
+    margin-top: var(--space-xl);
+    padding-top: var(--space-l);
+    border-top: 1px solid var(--border-light);
+}
+
+.missionTitle {
+    color: var(--accent-blue);
+    font-weight: bold;
+    margin-bottom: var(--space-s);
+    font-size: var(--text-base);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Form Styles */
+.contactForm {
+    width: 100%;
+    max-width: 500px;
+    margin-top: var(--space-m);
+}
+
+.formGroup {
+    margin-bottom: var(--space-m);
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-weight: bold;
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+}
+
+.inputField,
+.textareaField {
+    width: 100%;
+    padding: var(--space-s);
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: var(--text-base);
+    background: var(--bg-white);
+}
+
+.submitBtn {
+    background: var(--accent-blue);
+    color: var(--bg-white);
+    border: none;
+    padding: var(--space-s) var(--space-l);
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: var(--text-base);
+    transition: opacity 0.1s;
+}
+
+.submitBtn:hover {
+    opacity: 0.9;
+}
+
+/* ================================================
+   PRODUCT TABLE — Sugestões de Utilização
+   ================================================ */
+.productTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+    margin-top: var(--space-m);
+    background: var(--bg-white);
+}
+
+.productTable th {
+    padding: var(--space-s) var(--space-m);
+    text-align: left;
+    background: var(--header-grad-top);
+    color: var(--bg-white);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    border: 1px solid var(--header-grad-bottom);
+}
+
+.productTable td {
+    padding: var(--space-s) var(--space-m);
+    border: 1px solid var(--border-light);
+    line-height: 1.5;
+    vertical-align: top;
+    color: var(--text-secondary);
+}
+
+/* Zebra striping */
+.productTable tbody tr:nth-child(even) {
+    background: var(--bg-harmonic);
+}
+
+.productTable tbody tr:nth-child(odd) {
+    background: var(--bg-white);
+}
+
+/* Hover */
+.productTable tbody tr:hover {
+    background: #eef3fb;
+}
+
+/* Category header rows (bold product names) */
+.categoryRow {
+    background: #e8ecf1 !important;
+    border-left: 4px solid var(--accent-blue);
+}
+
+.categoryRow td {
+    font-weight: bold;
+    color: var(--text-primary);
+    padding-top: var(--space-m);
+    padding-bottom: var(--space-m);
+}
