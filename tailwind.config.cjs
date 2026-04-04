@@ -6,12 +6,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'brand-blue': '#1e3a8a',
-        'brand-orange': '#f97316',
-        'brand-gray': '#4b5563',
+        'brand-blue': '#1e40af', // Industrial Blue
+        'brand-orange': '#ea580c', // Technical Orange
+        'brand-gray': '#374151', // Graphite Gray
+        'brand-light-gray': '#E2E8F0', // Structural Light Gray
+        'brand-off-white': '#fafafa', // Off-white
       },
       fontFamily: {
-        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        sans: ['var(--font-pt-sans)', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        heading: ['var(--font-pt-sans)', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
       }
     },
   },

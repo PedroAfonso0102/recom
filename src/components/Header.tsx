@@ -15,23 +15,25 @@ const Header = () => {
   return (
     <header className="bg-white border-b border-gray-200 shadow-sm relative z-50">
       <div className="container mx-auto px-4 max-w-6xl py-4 flex flex-wrap justify-between items-center">
-        <div className="flex-shrink-0">
-          <Link href="/">
-            <Image src={logo} alt="RECOM Metal Duro" width={200} height={60} className="w-auto h-12 md:h-16" />
-          </Link>
+        <div className="flex flex-col justify-center">
+          <div className="flex items-center gap-4">
+            <Link href="/" className="flex-shrink-0">
+              <Image src={logo} alt="RECOM Metal Duro" width={200} height={60} className="w-auto h-12 md:h-16" />
+            </Link>
+            <div className="hidden lg:block relative opacity-70 mix-blend-multiply scale-75 transform origin-left">
+              <Image src={globe} alt="Globo RECOM" width={80} height={80} className="object-contain" />
+            </div>
+          </div>
+          <div className="hidden md:block mt-1 text-brand-gray text-xs font-semibold tracking-wide uppercase opacity-80">
+            AA Monteleone Comércio &bull; Desde 1990
+          </div>
         </div>
 
-        <div className="hidden lg:block relative opacity-80 mix-blend-multiply">
-          <Image src={globe} alt="" width={80} height={80} className="object-contain" />
-        </div>
-
-        <div className="hidden md:flex flex-col text-sm text-gray-600">
-          <h2 className="font-bold text-brand-blue mb-1 uppercase text-xs tracking-wider">Onde estamos:</h2>
+        <div className="hidden md:flex flex-col text-sm text-brand-gray text-right">
+          <h2 className="font-bold text-brand-blue mb-1 uppercase text-xs tracking-wider">Contato Institucional</h2>
           <ul className="space-y-0.5">
-            <li><span className="font-semibold text-gray-800">Rua:</span> Alferes João José, 350 - Jardim Chapadão</li>
-            <li><span className="font-semibold text-gray-800">Cep:</span> 13070-188 - Campinas - SP - Brasil</li>
-            <li><span className="font-semibold text-gray-800">Fones:</span> (19) 3233 2224 (pabx) fax (19) 3232 6935</li>
-            <li><span className="font-semibold text-gray-800">E-mail:</span> <a href="mailto:vendas.recom@montelione.com.br" className="text-brand-orange hover:underline">vendas.recom@montelione.com.br</a></li>
+            <li>(19) 3233 2224 | (19) 3232 6935</li>
+            <li><a href="mailto:vendas.recom@montelione.com.br" className="text-brand-orange hover:text-brand-blue transition-colors">vendas.recom@montelione.com.br</a></li>
           </ul>
         </div>
 
