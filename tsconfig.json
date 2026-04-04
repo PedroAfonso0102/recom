@@ -20,10 +20,16 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "ignoreDeprecations": "6.0"
   },
   "include": [
     "next-env.d.ts",
+    "src/global.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
