@@ -77,6 +77,12 @@
     transform: translateX(4px);
 }
 
+.produto.active a {
+    background: var(--bg-harmonic);
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+}
+
 @media (max-width: 768px) {
     .produto a:hover {
         transform: translateY(-2px);

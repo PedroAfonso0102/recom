@@ -2,6 +2,7 @@ import React from 'react';
 import Layout from '../components/Layout';
 import { Link } from 'react-router-dom';
 import styles from './Page.module.css';
+import ContactForm from '../components/ContactForm';
 
 const Contato = () => {
   return (
@@ -23,38 +24,7 @@ const Contato = () => {
                 Utilize o formulário abaixo para orçamentos técnicos ou dúvidas.
               </p>
               
-              <form style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                <div>
-                  <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>Nome *</label>
-                  <input type="text" required style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px' }} />
-                </div>
-                <div style={{ display: 'flex', gap: '15px' }}>
-                  <div style={{ flex: 1 }}>
-                    <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>E-mail *</label>
-                    <input type="email" required style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px' }} />
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>Telefone</label>
-                    <input type="tel" style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px' }} />
-                  </div>
-                </div>
-                <div>
-                  <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>Código(s) do(s) produto(s) desejado(s)</label>
-                  <input type="text" style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px' }} />
-                </div>
-                <div>
-                  <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>Assunto *</label>
-                  <input type="text" required style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px' }} />
-                </div>
-                <div>
-                  <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>Comentários *</label>
-                  <textarea required rows="5" style={{ width: '100%', padding: '10px', border: '1px solid #ccc', borderRadius: '4px' }}></textarea>
-                </div>
-                <p style={{ fontSize: '11px', color: '#666' }}>* Campos obrigatórios</p>
-                <button type="submit" style={{ padding: '12px 24px', backgroundColor: '#cc0000', color: '#fff', border: 'none', borderRadius: '4px', cursor: 'pointer', fontWeight: 'bold', alignSelf: 'flex-start' }}>
-                  Enviar Mensagem
-                </button>
-              </form>
+              <ContactForm />
             </div>
 
             <div style={{ flex: '0.8', minWidth: '300px' }}>
