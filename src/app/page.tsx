@@ -2,6 +2,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 import logoMitsubishi from '../assets/images/logo_mitsubishi.png';
 import logo7leaders from '../assets/images/logo_7leaders.png';
@@ -85,51 +86,61 @@ export default function Home() {
     return imgEl;
   };
 
+  const fadeUpVariant: any = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } }
+  };
+
   return (
-    <div className="container mx-auto px-4 max-w-6xl py-6">
+    <div className="container mx-auto px-4 max-w-6xl py-8">
       {/* Breadcrumb */}
-      <div className="text-sm text-gray-500 mb-6 bg-gray-100 p-2 rounded">
-        <span>Você está em: </span>
-        <Link href="/" className="text-brand-blue hover:text-brand-orange font-semibold">Home</Link>
-      </div>
+      <nav aria-label="Breadcrumb" className="mb-8 text-sm text-brand-gray/70">
+        <ol className="flex items-center space-x-2">
+          <li>
+            <Link href="/" className="hover:text-brand-blue transition-colors flex items-center gap-1">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+              Início
+            </Link>
+          </li>
+        </ol>
+      </nav>
 
-      {/* Fornecedores */}
-      <div className="mb-10 bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-        <h3 className="text-xl font-bold text-brand-blue mb-6 border-b-2 border-brand-orange pb-2 inline-block">Fornecedores</h3>
-        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-          <Link href="/catalogo-mitsubishi" className="hover:opacity-80 transition-opacity grayscale hover:grayscale-0">
-            <Image src={logoMitsubishi} alt="Mitsubishi" className="h-12 w-auto object-contain" />
-          </Link>
-          <Link href="/catalogo-7leaders" className="hover:opacity-80 transition-opacity grayscale hover:grayscale-0">
-            <Image src={logo7leaders} alt="7Leaders" className="h-12 w-auto object-contain" />
-          </Link>
-          <Link href="/btfixo" className="hover:opacity-80 transition-opacity grayscale hover:grayscale-0">
-            <Image src={logoBtfixo} alt="BT Fixo" className="h-12 w-auto object-contain" />
-          </Link>
-          <Link href="/catalogo-kifix" className="hover:opacity-80 transition-opacity grayscale hover:grayscale-0">
-            <Image src={logoKifix} alt="Kifix" className="h-12 w-auto object-contain" />
-          </Link>
-        </div>
-      </div>
-
-      {/* Carousel / Slider */}
-      <div className="relative mb-12 rounded-xl overflow-hidden shadow-md group">
-        <div className="relative aspect-video md:aspect-[21/9] bg-gray-100 flex items-center justify-center">
+      {/* Carousel / Slider - Hero Section */}
+      <motion.section
+        className="relative mb-16 rounded-sm overflow-hidden shadow-sm group border border-brand-light-gray/50"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeUpVariant}
+      >
+        <div className="relative aspect-video md:aspect-[21/9] bg-brand-gray flex items-center justify-center">
           {slides.map((slide, index) => (
             <div
               key={index}
-              className={`absolute inset-0 transition-opacity duration-500 ease-in-out ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
             >
               {renderSlideImage(slide)}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 text-white">
-                <h4 className="text-lg md:text-xl font-bold">{slide.title}</h4>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-gray/90 via-brand-gray/50 to-transparent mix-blend-multiply"></div>
             </div>
           ))}
+
+          {/* Overlay Text */}
+          <div className="absolute inset-0 z-20 flex flex-col justify-center px-8 md:px-16 w-full md:w-2/3">
+            <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl text-white font-bold mb-4 drop-shadow-md leading-tight">
+              Soluções em Ferramentas de Precisão
+            </h1>
+            <p className="text-white/90 text-lg md:text-xl mb-8 max-w-xl font-light drop-shadow">
+              Distribuidor autorizado Mitsubishi Materials e representante de marcas líderes em usinagem industrial.
+            </p>
+            <Link href="/empresa" className="bg-brand-blue hover:bg-blue-800 text-white font-bold py-3 px-8 rounded-sm w-max transition-colors uppercase tracking-wider text-sm shadow-md border border-blue-700">
+              Conheça nossa estrutura
+            </Link>
+          </div>
         </div>
 
+        {/* Carousel Controls (Subtle) */}
         <button
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/50 hover:bg-white text-brand-blue p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all shadow-lg focus:outline-none"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-30 bg-black/20 hover:bg-black/50 text-white p-2 rounded opacity-0 group-hover:opacity-100 transition-all focus:outline-none"
           onClick={prevSlide}
           aria-label="Slide anterior"
         >
@@ -137,93 +148,141 @@ export default function Home() {
         </button>
 
         <button
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/50 hover:bg-white text-brand-blue p-2 rounded-full opacity-0 group-hover:opacity-100 transition-all shadow-lg focus:outline-none"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-30 bg-black/20 hover:bg-black/50 text-white p-2 rounded opacity-0 group-hover:opacity-100 transition-all focus:outline-none"
           onClick={nextSlide}
           aria-label="Próximo slide"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path></svg>
         </button>
+      </motion.section>
 
-        {/* Dots */}
-        <div className="absolute bottom-4 left-0 right-0 z-20 flex justify-center space-x-2">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              className={`w-3 h-3 rounded-full transition-all focus:outline-none ${index === currentSlide ? 'bg-brand-orange w-6' : 'bg-white/60 hover:bg-white'}`}
-              onClick={() => setCurrentSlide(index)}
-              aria-label={`Ir para slide ${index + 1}`}
-            />
-          ))}
+      {/* Fornecedores */}
+      <motion.section
+        className="mb-16 bg-white p-8 rounded-sm shadow-sm border border-brand-light-gray"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-50px" }}
+        variants={fadeUpVariant}
+      >
+        <div className="text-center mb-8">
+          <h2 className="font-heading text-2xl font-bold text-brand-blue mb-2">Parcerias Estratégicas</h2>
+          <p className="text-brand-gray/80 text-sm">Trabalhamos com as principais marcas mundiais do setor metal-mecânico</p>
         </div>
-      </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center">
+          <Link href="/catalogo-mitsubishi" className="hover:scale-105 transition-transform duration-300 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 block">
+            <Image src={logoMitsubishi} alt="Mitsubishi Materials" className="h-10 md:h-12 w-auto object-contain" />
+          </Link>
+          <Link href="/catalogo-7leaders" className="hover:scale-105 transition-transform duration-300 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 block">
+            <Image src={logo7leaders} alt="7Leaders" className="h-10 md:h-12 w-auto object-contain" />
+          </Link>
+          <Link href="/btfixo" className="hover:scale-105 transition-transform duration-300 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 block">
+            <Image src={logoBtfixo} alt="BT Fixo" className="h-10 md:h-12 w-auto object-contain" />
+          </Link>
+          <Link href="/catalogo-kifix" className="hover:scale-105 transition-transform duration-300 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 block">
+            <Image src={logoKifix} alt="Kifix" className="h-10 md:h-12 w-auto object-contain" />
+          </Link>
+        </div>
+      </motion.section>
 
       {/* Content Grid */}
-      <div className="grid grid-cols-1 gap-8">
+      <div className="grid grid-cols-1 gap-12">
 
         {/* Produtos em Destaque */}
-        <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-          <h3 className="text-xl font-bold text-brand-blue mb-6 border-b-2 border-brand-orange pb-2 inline-block">Produtos em Destaque</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={fadeUpVariant}
+        >
+          <div className="flex justify-between items-end mb-6 border-b border-brand-light-gray pb-2">
+            <h3 className="font-heading text-2xl font-bold text-brand-gray">Destaques Técnicos</h3>
+            <Link href="/catalogo" className="text-brand-blue hover:text-brand-orange text-sm font-bold uppercase tracking-wider transition-colors hidden md:block">
+              Ver catálogo completo &rarr;
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {[
-              { title: 'S-TAW (N112 - N116)', desc: 'Brocas intercambiáveis para diâmetros pequenos' },
-              { title: 'TAW (N117 - N135)', desc: 'Brocas intercambiáveis' },
-              { title: 'Pequenos Diâmetros MWS', desc: 'Brocas inteiriças de metal duro com refrigeração interna' },
-              { title: 'MWE/MWS (N019 - N032)', desc: 'Brocas inteiriças de metal duro' },
-              { title: 'WSTAR Broca Super Longa', desc: 'Brocas inteiriças de metal duro para furação profunda' }
+              { code: 'S-TAW', model: 'N112 - N116', desc: 'Brocas intercambiáveis para diâmetros pequenos' },
+              { code: 'TAW', model: 'N117 - N135', desc: 'Brocas intercambiáveis' },
+              { code: 'MWS', model: 'Pequenos Diâm.', desc: 'Brocas inteiriças de metal duro com refrigeração interna' },
+              { code: 'MWE/MWS', model: 'N019 - N032', desc: 'Brocas inteiriças de metal duro' }
             ].map((prod, idx) => (
-              <div key={idx} className="bg-gray-50 border border-gray-100 p-4 rounded-md hover:shadow-md transition-shadow hover:border-brand-blue/30 group">
-                <strong className="block text-brand-blue group-hover:text-brand-orange transition-colors mb-2">{prod.title}</strong>
-                <p className="text-sm text-gray-600 leading-relaxed">{prod.desc}</p>
+              <div key={idx} className="bg-white border border-brand-light-gray p-5 rounded-sm hover:border-brand-blue/30 hover:shadow-sm transition-all group flex flex-col h-full">
+                <div className="bg-brand-off-white w-full h-32 mb-4 flex items-center justify-center border border-brand-light-gray/50 rounded-sm">
+                  {/* Placeholder for product image */}
+                  <span className="text-brand-light-gray font-mono text-xs">[Imagem: {prod.code}]</span>
+                </div>
+                <div className="mb-auto">
+                  <strong className="block text-brand-blue font-mono text-lg mb-1">{prod.code}</strong>
+                  <span className="block text-brand-gray/60 font-mono text-xs mb-3">{prod.model}</span>
+                  <p className="text-sm text-brand-gray leading-relaxed">{prod.desc}</p>
+                </div>
+                <Link href={`/catalogo/${prod.code.toLowerCase()}`} className="mt-4 pt-4 border-t border-brand-light-gray/50 text-xs font-bold text-brand-blue group-hover:text-brand-orange uppercase tracking-wide inline-flex items-center transition-colors">
+                  Especificações técnicas &rarr;
+                </Link>
               </div>
             ))}
           </div>
-        </div>
+          <Link href="/catalogo" className="mt-6 block text-center text-brand-blue hover:text-brand-orange text-sm font-bold uppercase tracking-wider transition-colors md:hidden">
+            Ver catálogo completo &rarr;
+          </Link>
+        </motion.section>
 
         {/* Two-column: Vídeo + Novidades */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Vídeo */}
-          <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-            <h3 className="text-xl font-bold text-brand-blue mb-6 border-b-2 border-brand-orange pb-2 inline-flex items-center gap-3">
-              Vídeo
-              <Image src={logoMit} alt="Mitsubishi" className="h-6 w-auto object-contain" />
+        <motion.section
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={fadeUpVariant}
+        >
+          {/* Vídeo Institucional */}
+          <div>
+            <h3 className="font-heading text-xl font-bold text-brand-gray mb-6 border-b border-brand-light-gray pb-2 flex items-center gap-3">
+              Conteúdo Técnico
+              <Image src={logoMit} alt="Mitsubishi" className="h-4 w-auto object-contain opacity-50 grayscale" />
             </h3>
-            <div className="rounded-lg overflow-hidden bg-black aspect-video flex items-center justify-center">
+            <div className="rounded-sm overflow-hidden bg-brand-gray aspect-video flex items-center justify-center border border-brand-light-gray shadow-sm">
+              {/* Em um cenário real, substituiríamos por um iframe do YouTube limpo */}
               <video controls className="w-full h-full object-contain">
                 <source src="http://www.recommetalduro.com.br//webroot/img/VID-20200316-WA0040.mp4" type="video/mp4" />
                 Seu navegador não suporta o elemento de vídeo.
               </video>
             </div>
+            <p className="mt-3 text-xs text-brand-gray/60 text-center">Demonstração de usinagem com ferramentas Mitsubishi Materials</p>
           </div>
 
-          {/* Novidades */}
-          <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-            <h3 className="text-xl font-bold text-brand-blue mb-6 border-b-2 border-brand-orange pb-2 inline-block">Novidades</h3>
-            <ul className="space-y-6">
-              <li className="pb-4 border-b border-gray-100 last:border-0 last:pb-0">
-                <h4 className="font-bold text-gray-800 mb-1">Mitsubishi traz novidades em todas as linhas</h4>
-                <Link href="/novidade-linha-mitsubishi" className="text-brand-blue hover:text-brand-orange text-sm font-medium transition-colors block mb-2">
-                  Clique aqui e confira os detalhes
+          {/* Informes do Setor */}
+          <div>
+            <h3 className="font-heading text-xl font-bold text-brand-gray mb-6 border-b border-brand-light-gray pb-2">Informes do Setor</h3>
+            <ul className="space-y-4">
+              <li className="bg-white p-4 border border-brand-light-gray rounded-sm hover:border-brand-blue/30 transition-colors">
+                <span className="text-[10px] uppercase font-bold text-brand-orange tracking-wider mb-1 block">Lançamento</span>
+                <h4 className="font-bold text-brand-gray mb-2">Mitsubishi traz inovações na linha de fresamento</h4>
+                <p className="text-sm text-brand-gray/80 mb-3 line-clamp-2">Novos insertos com tecnologia de cobertura avançada para maior durabilidade em usinagem pesada.</p>
+                <Link href="/novidade-linha-mitsubishi" className="text-brand-blue hover:text-brand-orange text-xs font-bold uppercase tracking-wide transition-colors">
+                  Ler artigo completo &rarr;
                 </Link>
-                <p className="text-xs text-gray-400 font-mono">Postado em: 30/09/2013 às 23:19</p>
               </li>
-              <li className="pb-4 border-b border-gray-100 last:border-0 last:pb-0">
-                <h4 className="font-bold text-gray-800 mb-1">Veja as fotos da FENASUCRO 2012</h4>
-                <Link href="/feiras/fenasucro" className="text-brand-blue hover:text-brand-orange text-sm font-medium transition-colors block mb-2">
-                  Fotos da FENASUCRO 2012
+              <li className="bg-white p-4 border border-brand-light-gray rounded-sm hover:border-brand-blue/30 transition-colors">
+                <span className="text-[10px] uppercase font-bold text-brand-gray/60 tracking-wider mb-1 block">Feiras e Eventos</span>
+                <h4 className="font-bold text-brand-gray mb-2">Presença na FENASUCRO & AGROCANA</h4>
+                <p className="text-sm text-brand-gray/80 mb-3 line-clamp-2">A RECOM reforça seu compromisso com o setor sucroenergético apresentando soluções completas de usinagem.</p>
+                <Link href="/feiras/fenasucro" className="text-brand-blue hover:text-brand-orange text-xs font-bold uppercase tracking-wide transition-colors">
+                  Ver galeria técnica &rarr;
                 </Link>
-                <p className="text-xs text-gray-400 font-mono">Postado em: 19/09/2012 às 20:49</p>
               </li>
-              <li className="pb-4 border-b border-gray-100 last:border-0 last:pb-0">
-                <h4 className="font-bold text-gray-800 mb-1">Confira os novos videos promocionais</h4>
-                <div className="space-y-1 mb-2">
-                  <span className="text-brand-blue hover:text-brand-orange cursor-pointer text-sm font-medium transition-colors block">Smart Miracle</span>
-                  <span className="text-brand-blue hover:text-brand-orange cursor-pointer text-sm font-medium transition-colors block">MC6025</span>
-                </div>
-                <p className="text-xs text-gray-400 font-mono">Postado em: 19/09/2012 às 20:25</p>
+              <li className="bg-white p-4 border border-brand-light-gray rounded-sm hover:border-brand-blue/30 transition-colors">
+                <span className="text-[10px] uppercase font-bold text-brand-gray/60 tracking-wider mb-1 block">Material de Apoio</span>
+                <h4 className="font-bold text-brand-gray mb-2">Atualização de Manuais Técnicos</h4>
+                <p className="text-sm text-brand-gray/80 mb-3 line-clamp-2">Novos parâmetros de corte disponibilizados para as linhas Smart Miracle e MC6025.</p>
+                <Link href="/produtos" className="text-brand-blue hover:text-brand-orange text-xs font-bold uppercase tracking-wide transition-colors">
+                  Acessar área técnica &rarr;
+                </Link>
               </li>
             </ul>
           </div>
-        </div>
+        </motion.section>
 
       </div>
     </div>
