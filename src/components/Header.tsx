@@ -1,78 +1,88 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Phone, Mail, Menu, X } from 'lucide-react';
 import logo from '../assets/images/logo.png';
-import globe from '../assets/images/globe.png';
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const toggleMenu = () => setMenuOpen(!menuOpen);
+
+  const navLinks = [
+    { path: '/empresa', label: 'A Empresa' },
+    { path: '/produtos', label: 'Soluções' },
+    { path: '/catalogo', label: 'Catálogo Técnico' },
+    { path: '/', label: 'Representações' }, // Alterado temporariamente para Home até criarmos página ou âncora
+    { path: '/contato', label: 'Contato' },
+  ];
 
   return (
-    <header className="bg-white border-b border-gray-200 shadow-sm relative z-50">
-      <div className="container mx-auto px-4 max-w-6xl py-4 flex flex-wrap justify-between items-center">
-        <div className="flex-shrink-0">
-          <Link href="/">
-            <Image src={logo} alt="RECOM Metal Duro" width={200} height={60} className="w-auto h-12 md:h-16" />
-          </Link>
-        </div>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-brand-offwhite py-5'}`}>
+      <div className="container mx-auto px-4 max-w-6xl flex items-center justify-between">
+        <Link href="/" className="flex-shrink-0 transition-opacity hover:opacity-90">
+          <Image src={logo} alt="RECOM Metal Duro" width={180} height={50} className="w-auto h-10 md:h-12 object-contain" />
+        </Link>
 
-        <div className="hidden lg:block relative opacity-80 mix-blend-multiply">
-          <Image src={globe} alt="" width={80} height={80} className="object-contain" />
-        </div>
+        {/* Desktop Menu */}
+        <nav className="hidden md:flex items-center space-x-8">
+          {navLinks.map((link) => (
+            <Link key={link.label} href={link.path} className="text-[15px] font-medium text-brand-gray hover:text-brand-blue transition-colors">
+              {link.label}
+            </Link>
+          ))}
+        </nav>
 
-        <div className="hidden md:flex flex-col text-sm text-gray-600">
-          <h2 className="font-bold text-brand-blue mb-1 uppercase text-xs tracking-wider">Onde estamos:</h2>
-          <ul className="space-y-0.5">
-            <li><span className="font-semibold text-gray-800">Rua:</span> Alferes João José, 350 - Jardim Chapadão</li>
-            <li><span className="font-semibold text-gray-800">Cep:</span> 13070-188 - Campinas - SP - Brasil</li>
-            <li><span className="font-semibold text-gray-800">Fones:</span> (19) 3233 2224 (pabx) fax (19) 3232 6935</li>
-            <li><span className="font-semibold text-gray-800">E-mail:</span> <a href="mailto:vendas.recom@montelione.com.br" className="text-brand-orange hover:underline">vendas.recom@montelione.com.br</a></li>
-          </ul>
-        </div>
-
-        <button
-          className="md:hidden flex items-center p-2 rounded hover:bg-gray-100"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          <div className="w-6 h-5 relative flex flex-col justify-between">
-            <span className={`block w-full h-0.5 bg-brand-blue transition-transform ${menuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-            <span className={`block w-full h-0.5 bg-brand-blue transition-opacity ${menuOpen ? 'opacity-0' : ''}`}></span>
-            <span className={`block w-full h-0.5 bg-brand-blue transition-transform ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+        {/* Desktop Contact */}
+        <div className="hidden lg:flex items-center space-x-6 text-sm text-brand-gray">
+          <div className="flex items-center space-x-2 group cursor-pointer">
+            <Phone size={16} className="text-brand-orange group-hover:text-brand-blue transition-colors" />
+            <span className="font-medium group-hover:text-brand-blue transition-colors">(19) 3233-2224</span>
           </div>
+          <div className="flex items-center space-x-2 group">
+            <Mail size={16} className="text-brand-orange group-hover:text-brand-blue transition-colors" />
+            <a href="mailto:vendas.recom@montelione.com.br" className="font-medium group-hover:text-brand-blue transition-colors">vendas</a>
+          </div>
+        </div>
+
+        {/* Mobile Toggle */}
+        <button className="md:hidden text-brand-gray hover:text-brand-blue transition-colors" onClick={toggleMenu} aria-label="Menu">
+          {menuOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
-      <nav className={`${menuOpen ? 'block' : 'hidden'} md:block bg-brand-blue`}>
-        <div className="container mx-auto max-w-6xl">
-          <ul className="flex flex-col md:flex-row md:justify-center divide-y md:divide-y-0 md:divide-x divide-blue-800">
-            {[
-              { path: '/', label: 'Home', legend: 'Inicio' },
-              { path: '/empresa', label: 'A Empresa', legend: 'Sobre nós' },
-              { path: '/produtos', label: 'Produtos', legend: 'Conteúdo técnico' },
-              { path: '/catalogo', label: 'Catálogo', legend: 'Linha de produtos' },
-              { path: '/promocoes', label: 'Promoções', legend: 'Preços especiais' },
-              { path: '/contato', label: 'Contato', legend: 'Fale conosco' }
-            ].map((item, idx) => (
-              <li key={idx} className="w-full md:w-auto flex-1">
-                <Link
-                  href={item.path}
-                  onClick={() => setMenuOpen(false)}
-                  className="group flex flex-col items-center justify-center py-3 px-2 text-white hover:bg-blue-800 transition-colors h-full text-center"
-                >
-                  <span className="font-bold text-sm uppercase tracking-wide group-hover:text-brand-orange transition-colors">{item.label}</span>
-                  <span className="text-xs text-blue-200 mt-1 hidden md:block">{item.legend}</span>
-                </Link>
-              </li>
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg border-t border-gray-100">
+          <nav className="flex flex-col py-4 px-4 space-y-4">
+            {navLinks.map((link) => (
+              <Link key={link.label} href={link.path} onClick={() => setMenuOpen(false)} className="text-base font-medium text-brand-gray hover:text-brand-blue transition-colors">
+                {link.label}
+              </Link>
             ))}
-          </ul>
+            <div className="pt-4 border-t border-gray-100 flex flex-col space-y-3">
+              <div className="flex items-center space-x-2 text-brand-gray">
+                <Phone size={18} className="text-brand-orange" />
+                <span className="font-medium">(19) 3233-2224</span>
+              </div>
+              <div className="flex items-center space-x-2 text-brand-gray">
+                <Mail size={18} className="text-brand-orange" />
+                <a href="mailto:vendas.recom@montelione.com.br" className="font-medium">vendas.recom@montelione.com.br</a>
+              </div>
+            </div>
+          </nav>
         </div>
-      </nav>
+      )}
     </header>
   );
 };
