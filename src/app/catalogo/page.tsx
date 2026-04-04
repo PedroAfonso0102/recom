@@ -1,23 +1,30 @@
 import React from 'react';
 import Link from 'next/link';
+import { Button } from '../../components/ui/Button';
 
-export const metadata = {
-  title: 'Catálogo | RECOM Metal Duro',
-  description: 'Catálogo completo de ferramentas de corte.',
-};
-
-export default function Catalogo() {
+export default function CatalogoPage() {
   return (
-    <div className="container mx-auto px-4 max-w-6xl py-6">
-      <div className="text-sm text-gray-500 mb-6 bg-gray-100 p-2 rounded">
-        <span>Você está em: </span>
-        <Link href="/" className="text-brand-blue hover:text-brand-orange font-semibold">Home</Link>
-        <span> &gt; Catálogo</span>
+    <div className="container mx-auto px-4 max-w-4xl py-24 text-center min-h-[60vh] flex flex-col justify-center items-center">
+      <h1 className="text-4xl md:text-5xl font-bold text-brand-blue mb-6">Catálogo em Atualização</h1>
+      <p className="text-xl text-gray-600 mb-10 max-w-2xl">
+        Estamos preparando um novo catálogo digital completo para facilitar suas consultas de ferramentas de corte.
+        Enquanto isso, nossa equipe técnica está à disposição no WhatsApp.
+      </p>
+
+      <div className="flex gap-4">
+        <Button asChild size="lg">
+          <a href="https://wa.me/5519999999999" target="_blank" rel="noopener noreferrer">
+            Falar com Engenharia
+          </a>
+        </Button>
+        <Button asChild variant="outline" size="lg">
+          <Link href="/">
+            Voltar para Home
+          </Link>
+        </Button>
       </div>
-      <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm border border-gray-100">
-        <h1 className="text-2xl md:text-3xl font-bold text-brand-blue mb-8 border-b-2 border-brand-orange pb-3 inline-block">Catálogo</h1>
-        <p className="text-gray-600 mb-6">Em breve: Catálogo técnico completo e interativo.</p>
-      </div>
+
+      {/* TODO: Fase 2 - Implementar a listagem real do catálogo e roteamento dinâmico /catalogo/[categoria]/[slug] */}
     </div>
   );
 }
