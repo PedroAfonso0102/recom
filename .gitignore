@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.next/
+recom-next/node_modules/
+recom-next/dist/
+recom-next/.next/
+recom-next/dist
+recom-next/.next

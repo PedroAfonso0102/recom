@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+:root {
+  /* --- Spacing System (8pt Grid) --- */
+  --space-xs: 4px;
+  --space-s: 8px;
+  --space-m: 16px;
+  --space-l: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  /* --- Typography (Major Third Scale 1.25) --- */
+  --font-size-base: 14px;
+  --text-xs: 0.64rem;   /* 9px approx */
+  --text-sm: 0.8rem;    /* 11.2px approx */
+  --text-base: 1rem;    /* 14px */
+  --text-md: 1.25rem;   /* 17.5px */
+  --text-lg: 1.563rem;  /* 21.8px */
+  --text-xl: 1.953rem;  /* 27.3px */
+  --text-2xl: 2.441rem; /* 34px */
+
+  /* --- Colors --- */
+  --bg-main: #f1f1f1;
+  --bg-harmonic: #f8f8f8;
+  --bg-white: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #404040;
+  --text-muted: #737373;
+  --accent-blue: #0066cc;
+  --header-grad-top: #3a3b3e;
+  --header-grad-bottom: #2e2f30;
+  --border-light: #e5e5e5;
+  /* --- Containers & Breakpoints --- */
+  --container-width: 1000px;
+  --mobile-breakpoint: 768px;
+  --tablet-breakpoint: 1024px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'PT Sans', Arial, Helvetica, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-blue);
+  transition: color 0.1s;
+}
+
+a:hover {
+  filter: brightness(1.2);
+}
